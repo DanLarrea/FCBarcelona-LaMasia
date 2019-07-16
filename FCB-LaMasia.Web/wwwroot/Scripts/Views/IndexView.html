@@ -1,0 +1,19 @@
+﻿<style>
+    .homebig-bg
+{
+    background: #e2e7ec url(/Css/img/bg-home2.jpg);
+    background-position-x: center;
+    overflow: scroll;
+    height: 100vh;
+    background-size: cover;
+    color: #666;
+}
+</style>
+<div class="homebig-bg">
+    <div>
+        <home ng-show="vm.IsLoggedOn()"></home>
+        <start ng-show="vm.IsStartVisible()"></start>
+
+        <loading ng-show="vm.IsLoading()"></loading>
+    </div>
+</div>

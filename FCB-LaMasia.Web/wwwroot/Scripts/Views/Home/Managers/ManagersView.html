@@ -1,0 +1,117 @@
+﻿<style>
+.card-header 
+{
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background: linear-gradient(120deg,#154284 0,#cd122d);
+    color: white;
+    font-family: 'Bree Serif', serif;
+    font-weight: 200;
+}
+.home-bg
+{
+    background: #e2e7ec url(/Css/img/bg-home2.jpg);
+    background-position-x: center;
+    overflow: hidden;
+    height: 100vh;
+    background-size: cover;
+    color: #666;
+}
+.btn-form
+{
+    background-color: #fdc52c;
+    color: black;
+    font-weight: bold;
+    margin: 10px;
+}
+.btn-form:hover
+{
+    background: linear-gradient(140deg,#154284 0,#cd122d);
+    color: white;
+    font-weight: bold;
+    margin: 10px;
+}
+.cardstyle
+{
+    max-width: 1000px;
+    margin: 3vh auto;
+    border:0;
+    padding:0;
+    border-radius: 10px;
+}
+.card-image
+{
+    background: #e2e7ec url(/Css/img/mini1.jpg);
+    background-position-y: top;
+    background-position-x: center;
+    background-size: cover;
+    width: 250px;
+    border-right: 10px solid #fdc52c;
+}
+.cbody 
+{
+    display: inline-flex;
+}
+</style>
+
+<div class="home-bg">
+    <div class="card cardstyle">
+        <div class="card-header">
+            ADD NEW MANAGER
+        </div>
+        <div class="card-body cbody">
+            <div class="card-image col-md-3"></div>
+            <form class="p-4 col-md-9">
+                <div class="form-row">
+                    <div class="form-group col-md-5">
+                        <label for="inputName1">Name</label>
+                        <input type="text" class="form-control" id="inputName1" placeholder="Name" ng-model="vm.Name">
+                    </div>
+                    <div class="form-group col-md-5">
+                        <label for="inputLastname">Lastname</label>
+                        <input type="text" class="form-control" id="inputLastname" placeholder="Lastname" ng-model="vm.Lastname">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputAge">Age</label>
+                        <input type="number" class="form-control" id="inputAge" placeholder="Age" ng-model="vm.Age">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputNationality">Nationality</label>
+                        <input type="text" class="form-control" id="inputNationality" placeholder="Nationality" ng-model="vm.Nationality">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputEmail1">Email</label>
+                        <input type="text" class="form-control" id="inputEmail1" placeholder="Email" ng-model="vm.Email">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputPassword">Password</label>
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Password" ng-model="vm.Password">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn  btn-form float-right" ng-show="vm.IsEditing">
+                    CLEAN
+                </button>
+                <button type="submit" class="btn btn-form float-right" ng-click="vm.ClearForm()" ng-show="!vm.IsEditing">
+                    CANCEL
+                </button>
+                <button type="submit" class="btn btn-form float-right" ng-click="vm.UpdateManager()" ng-show="!vm.IsEditing">
+                    UPDATE
+                </button>
+                <button type="submit" class="btn btn-form btn-round float-right" ng-show="vm.IsEditing" ng-click="vm.AddNewManager()">
+                    <i class="now-ui-icons users_single-02"></i> ADD MANAGER
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="card p-4 cardstyle">
+        <div class="card-header">
+            MANAGERS LIST
+        </div>
+        <div class="card-body">
+            <div ui-grid="vm.GridOptions" ui-grid-auto-resize></div>
+        </div>
+    </div>
+</div>
